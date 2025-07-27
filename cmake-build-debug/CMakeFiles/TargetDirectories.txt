@@ -1,0 +1,3 @@
+/Users/vittoria/CLionProjects/elenco_spesa/cmake-build-debug/CMakeFiles/elenco_spesa.dir
+/Users/vittoria/CLionProjects/elenco_spesa/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/vittoria/CLionProjects/elenco_spesa/cmake-build-debug/CMakeFiles/rebuild_cache.dir
