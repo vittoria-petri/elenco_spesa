@@ -1,5 +1,6 @@
 #include <iostream>
-#include <memory>
+#include <memory>           // std::shared_ptr, std::make_shared
+#include <stdexcept>        // per std::runtime_error
 #include "Utente.h"
 #include "ObserverConcrete.h"
 #include "OggettoLista.h"
@@ -10,8 +11,8 @@ int main() {
     auto listaCondivisa = std::make_shared<ListaSpesa>();
 
     // Crea due observer che osservano la stessa lista
-    auto osservatore1 = std::make_unique<ObserverConcrete>(listaCondivisa.get());
-    auto osservatore2 = std::make_unique<ObserverConcrete>(listaCondivisa.get());
+    auto osservatore1 = std::make_shared<ObserverConcrete>(listaCondivisa.get());
+    auto osservatore2 = std::make_shared<ObserverConcrete>(listaCondivisa.get());
 
     // Crea due utenti che condividono la lista
     Utente alice("Alice");
@@ -29,9 +30,21 @@ int main() {
     std::cout << "\nContenuto lista condivisa (visibile da Alice e Bob):\n";
     listaCondivisa->stampaOggettiDettagliati();
 
-    // Rimuoviamo un oggetto
+    // Rimuoviamo un oggetto esistente
     std::cout << "\nBob rimuove 'Sapone' dalla lista...\n";
-    listaCondivisa->rimuoviOggetto("Sapone");
+    try {
+        listaCondivisa->rimuoviOggetto("Sapone");
+    } catch (const std::runtime_error& e) {
+        std::cerr << "Errore: " << e.what() << std::endl;
+    }
+
+    // Rimuoviamo un oggetto **NON esistente** per vedere l’eccezione
+    std::cout << "\nBob prova a rimuovere 'Pane' (non presente)...\n";
+    try {
+        listaCondivisa->rimuoviOggetto("Pane");
+    } catch (const std::runtime_error& e) {
+        std::cerr << "Eccezione catturata: " << e.what() << std::endl;
+    }
 
     // Stampa aggiornata
     std::cout << "\nLista aggiornata:\n";

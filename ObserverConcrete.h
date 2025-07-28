@@ -4,17 +4,21 @@
 #include "Observer.h"
 #include "Subject.h"
 #include <iostream>
+#include <stdexcept>
 
 class ObserverConcrete : public Observer {
 public:
-  // Passa il Subject da osservare
-  ObserverConcrete(Subject* subject) : subject(subject) {
-    attach();
+  // Passa il Subject da osservare e controllo che il puntatore non sia nullo
+  explicit ObserverConcrete(Subject* subject) : subject(subject) {
+    if (!subject) {
+      throw std::invalid_argument("Subject non può essere nullptr");
+    }
+    ObserverConcrete::attach();
   }
 
   ~ObserverConcrete() override {
     std::cout << "ObserverConcrete: distruttore chiamato\n";
-    detach();
+    ObserverConcrete::detach();
   }
 
   void attach() override {

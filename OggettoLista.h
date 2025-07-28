@@ -1,12 +1,18 @@
 #ifndef OGGETTOLISTA_H
 #define OGGETTOLISTA_H
+#include <stdexcept>
 #include "Categoria.h"
 #include <string>
 
 class OggettoLista {
 public:
-    OggettoLista(std::string nome, int quantita, std::string categoria)
-        : nome(nome), quantita(quantita), categoria(categoria) {}
+    // Controllo che i dati inseriti siano validi
+    OggettoLista(const std::string& nome, int quantita, const std::string& categoria)
+    : nome(nome), quantita(quantita), categoria(categoria) {
+        if (nome.empty()) throw std::invalid_argument("Nome oggetto non può essere vuoto");
+        if (quantita <= 0) throw std::invalid_argument("Quantità deve essere positiva");
+        if (categoria.empty()) throw std::invalid_argument("Categoria non può essere vuota");
+    }
 
     ~OggettoLista() = default;
 

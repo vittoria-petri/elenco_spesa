@@ -5,11 +5,10 @@
 #ifndef CATEGORIA_H
 #define CATEGORIA_H
 #include <string>
-using namespace std;
 
 class Categoria {
 public:
-  Categoria(const std::string& nome) : nome(nome) {}
+  explicit Categoria(const std::string& nome) : nome(nome) {}
 
   std::string getNome() const {
     return nome;

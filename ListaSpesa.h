@@ -6,7 +6,7 @@
 #define LISTASPESA_H
 #include <list>
 #include <iostream>
-using namespace std;
+#include <stdexcept>
 #include "Subject.h"
 #include "OggettoLista.h"
 
@@ -14,26 +14,35 @@ class ListaSpesa : public Subject {
 public:
   ListaSpesa() = default;
 
-  void registra() {}
-
   void aggiungiOggetto(const OggettoLista& oggetto) {
+    if (oggetto.getQuantita() <= 0) {
+      throw std::invalid_argument("Quantità deve essere maggiore di zero.");
+    }
     listaSpesa.push_back(oggetto);
     notify();
   }
 
   // Uso gli iteratori
-  void rimuoviOggetto(const string& nome) {
-    for (auto it = listaSpesa.begin(); it != listaSpesa.end(); ++it) {
+  void rimuoviOggetto(const std::string& nome) {
+    bool trovato = false;
+    for (auto it = listaSpesa.begin(); it != listaSpesa.end(); ) {
       if (it->getNome() == nome) {
-        listaSpesa.erase(it);
-          notify();
+        it = listaSpesa.erase(it);
+        trovato = true;
+        notify();
+      } else {
+        ++it;
       }
+    }
+    if (!trovato) {
+      throw std::runtime_error("Oggetto '" + nome + "' non trovato nella lista.");
     }
   }
 
+
   void getOggetti() const {
     for (const auto& oggetto : listaSpesa) {
-      cout << oggetto.getNome() << endl;
+      std::cout << oggetto.getNome() << std::endl;
     }
   }
 
@@ -60,8 +69,8 @@ public:
   }
 
 private:
-  list<OggettoLista> listaSpesa;
-  list<Observer*> observers;
+  std::list<OggettoLista> listaSpesa;
+  std::list<Observer*> observers;
 };
 
 #endif //LISTASPESA_H

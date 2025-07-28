@@ -8,14 +8,12 @@
 #include <string>
 #include <list>
 #include <memory>
-using namespace std;
-
 
 class Utente {
 public:
-  Utente(std::string nome) : nome(nome) {}
+  explicit Utente(const std::string &nome) : nome(nome) {}
 
-  void aggiungiLista(shared_ptr<ListaSpesa> lista) {
+  void aggiungiLista(const std::shared_ptr<ListaSpesa>& lista) {
     liste.push_back(lista);
   }
 
@@ -23,13 +21,13 @@ public:
     return liste;
   }
 
-  string getNomeUtente() const {
+  std::string getNomeUtente() const {
     return nome;
   }
 
 private:
-  string nome;
-  list<std::shared_ptr<ListaSpesa>> liste;
+  std::string nome;
+  std::list<std::shared_ptr<ListaSpesa>> liste;
 };
 
 
