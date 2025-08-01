@@ -41,13 +41,45 @@ include CMakeFiles/rules.ninja
 
 cmake_ninja_workdir = /Users/vittoria/CLionProjects/elenco_spesa/cmake-build-debug/
 # =============================================================================
+# Object build statements for STATIC_LIBRARY target core
+
+
+#############################################
+# Order-only phony target for core
+
+build cmake_object_order_depends_target_core: phony || .
+
+build CMakeFiles/core.dir/main.cpp.o: CXX_COMPILER__core_unscanned_Debug /Users/vittoria/CLionProjects/elenco_spesa/main.cpp || cmake_object_order_depends_target_core
+  DEP_FILE = CMakeFiles/core.dir/main.cpp.o.d
+  FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.5.sdk -fcolor-diagnostics
+  OBJECT_DIR = CMakeFiles/core.dir
+  OBJECT_FILE_DIR = CMakeFiles/core.dir
+
+
+# =============================================================================
+# Link build statements for STATIC_LIBRARY target core
+
+
+#############################################
+# Link the static library libcore.a
+
+build libcore.a: CXX_STATIC_LIBRARY_LINKER__core_Debug CMakeFiles/core.dir/main.cpp.o
+  ARCH_FLAGS = -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.5.sdk
+  LANGUAGE_COMPILE_FLAGS = -g
+  OBJECT_DIR = CMakeFiles/core.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = libcore.a
+  TARGET_PDB = core.a.dbg
+
+# =============================================================================
 # Object build statements for EXECUTABLE target elenco_spesa
 
 
 #############################################
 # Order-only phony target for elenco_spesa
 
-build cmake_object_order_depends_target_elenco_spesa: phony || .
+build cmake_object_order_depends_target_elenco_spesa: phony || cmake_object_order_depends_target_core
 
 build CMakeFiles/elenco_spesa.dir/main.cpp.o: CXX_COMPILER__elenco_spesa_unscanned_Debug /Users/vittoria/CLionProjects/elenco_spesa/main.cpp || cmake_object_order_depends_target_elenco_spesa
   DEP_FILE = CMakeFiles/elenco_spesa.dir/main.cpp.o.d
@@ -63,13 +95,26 @@ build CMakeFiles/elenco_spesa.dir/main.cpp.o: CXX_COMPILER__elenco_spesa_unscann
 #############################################
 # Link the executable elenco_spesa
 
-build elenco_spesa: CXX_EXECUTABLE_LINKER__elenco_spesa_Debug CMakeFiles/elenco_spesa.dir/main.cpp.o
+build elenco_spesa: CXX_EXECUTABLE_LINKER__elenco_spesa_Debug CMakeFiles/elenco_spesa.dir/main.cpp.o | libcore.a || libcore.a
   FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.5.sdk
+  LINK_LIBRARIES = libcore.a
   OBJECT_DIR = CMakeFiles/elenco_spesa.dir
   POST_BUILD = :
   PRE_LINK = :
   TARGET_FILE = elenco_spesa
   TARGET_PDB = elenco_spesa.dbg
+
+
+#############################################
+# Utility command for test
+
+build CMakeFiles/test.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/vittoria/CLionProjects/elenco_spesa/cmake-build-debug && /Users/vittoria/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/ctest --force-new-ctest-process
+  DESC = Running tests...
+  pool = console
+  restat = 1
+
+build test: phony CMakeFiles/test.util
 
 
 #############################################
@@ -94,8 +139,578 @@ build CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
 
 build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 
+
+#############################################
+# Utility command for list_install_components
+
+build list_install_components: phony
+
+
+#############################################
+# Utility command for install
+
+build CMakeFiles/install.util: CUSTOM_COMMAND all
+  COMMAND = cd /Users/vittoria/CLionProjects/elenco_spesa/cmake-build-debug && /Users/vittoria/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake -P cmake_install.cmake
+  DESC = Install the project...
+  pool = console
+  restat = 1
+
+build install: phony CMakeFiles/install.util
+
+
+#############################################
+# Utility command for install/local
+
+build CMakeFiles/install/local.util: CUSTOM_COMMAND all
+  COMMAND = cd /Users/vittoria/CLionProjects/elenco_spesa/cmake-build-debug && /Users/vittoria/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+  DESC = Installing only the local directory...
+  pool = console
+  restat = 1
+
+build install/local: phony CMakeFiles/install/local.util
+
+
+#############################################
+# Utility command for install/strip
+
+build CMakeFiles/install/strip.util: CUSTOM_COMMAND all
+  COMMAND = cd /Users/vittoria/CLionProjects/elenco_spesa/cmake-build-debug && /Users/vittoria/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+  DESC = Installing the project stripped...
+  pool = console
+  restat = 1
+
+build install/strip: phony CMakeFiles/install/strip.util
+
+# =============================================================================
+# Write statements declared in CMakeLists.txt:
+# /Users/vittoria/CLionProjects/elenco_spesa/CMakeLists.txt
+# =============================================================================
+
+
+#############################################
+# Utility command for test
+
+build test/googletest/CMakeFiles/test.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/vittoria/CLionProjects/elenco_spesa/cmake-build-debug/test/googletest && /Users/vittoria/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/ctest --force-new-ctest-process
+  DESC = Running tests...
+  pool = console
+  restat = 1
+
+build test/googletest/test: phony test/googletest/CMakeFiles/test.util
+
+
+#############################################
+# Utility command for edit_cache
+
+build test/googletest/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/vittoria/CLionProjects/elenco_spesa/cmake-build-debug/test/googletest && /Users/vittoria/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+  DESC = No interactive CMake dialog available...
+  restat = 1
+
+build test/googletest/edit_cache: phony test/googletest/CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build test/googletest/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/vittoria/CLionProjects/elenco_spesa/cmake-build-debug/test/googletest && /Users/vittoria/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake --regenerate-during-build -S/Users/vittoria/CLionProjects/elenco_spesa -B/Users/vittoria/CLionProjects/elenco_spesa/cmake-build-debug
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build test/googletest/rebuild_cache: phony test/googletest/CMakeFiles/rebuild_cache.util
+
+
+#############################################
+# Utility command for list_install_components
+
+build test/googletest/list_install_components: phony
+
+
+#############################################
+# Utility command for install
+
+build test/googletest/CMakeFiles/install.util: CUSTOM_COMMAND test/googletest/all
+  COMMAND = cd /Users/vittoria/CLionProjects/elenco_spesa/cmake-build-debug/test/googletest && /Users/vittoria/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake -P cmake_install.cmake
+  DESC = Install the project...
+  pool = console
+  restat = 1
+
+build test/googletest/install: phony test/googletest/CMakeFiles/install.util
+
+
+#############################################
+# Utility command for install/local
+
+build test/googletest/CMakeFiles/install/local.util: CUSTOM_COMMAND test/googletest/all
+  COMMAND = cd /Users/vittoria/CLionProjects/elenco_spesa/cmake-build-debug/test/googletest && /Users/vittoria/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+  DESC = Installing only the local directory...
+  pool = console
+  restat = 1
+
+build test/googletest/install/local: phony test/googletest/CMakeFiles/install/local.util
+
+
+#############################################
+# Utility command for install/strip
+
+build test/googletest/CMakeFiles/install/strip.util: CUSTOM_COMMAND test/googletest/all
+  COMMAND = cd /Users/vittoria/CLionProjects/elenco_spesa/cmake-build-debug/test/googletest && /Users/vittoria/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+  DESC = Installing the project stripped...
+  pool = console
+  restat = 1
+
+build test/googletest/install/strip: phony test/googletest/CMakeFiles/install/strip.util
+
+# =============================================================================
+# Write statements declared in CMakeLists.txt:
+# /Users/vittoria/CLionProjects/elenco_spesa/test/googletest/CMakeLists.txt
+# =============================================================================
+
+# =============================================================================
+# Object build statements for STATIC_LIBRARY target gmock
+
+
+#############################################
+# Order-only phony target for gmock
+
+build cmake_object_order_depends_target_gmock: phony || cmake_object_order_depends_target_gtest
+
+build test/googletest/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.o: CXX_COMPILER__gmock_unscanned_Debug /Users/vittoria/CLionProjects/elenco_spesa/test/googletest/googlemock/src/gmock-all.cc || cmake_object_order_depends_target_gmock
+  DEP_FILE = test/googletest/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.o.d
+  FLAGS = -g -std=c++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.5.sdk -fcolor-diagnostics  -DGTEST_HAS_PTHREAD=1
+  INCLUDES = -I/Users/vittoria/CLionProjects/elenco_spesa/test/googletest/googlemock/include -I/Users/vittoria/CLionProjects/elenco_spesa/test/googletest/googlemock -isystem /Users/vittoria/CLionProjects/elenco_spesa/test/googletest/googletest/include -isystem /Users/vittoria/CLionProjects/elenco_spesa/test/googletest/googletest
+  OBJECT_DIR = test/googletest/googlemock/CMakeFiles/gmock.dir
+  OBJECT_FILE_DIR = test/googletest/googlemock/CMakeFiles/gmock.dir/src
+
+
+# =============================================================================
+# Link build statements for STATIC_LIBRARY target gmock
+
+
+#############################################
+# Link the static library lib/libgmock.a
+
+build lib/libgmock.a: CXX_STATIC_LIBRARY_LINKER__gmock_Debug test/googletest/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.o || lib/libgtest.a
+  ARCH_FLAGS = -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.5.sdk
+  LANGUAGE_COMPILE_FLAGS = -g
+  OBJECT_DIR = test/googletest/googlemock/CMakeFiles/gmock.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = lib/libgmock.a
+  TARGET_PDB = gmock.a.dbg
+
+# =============================================================================
+# Object build statements for STATIC_LIBRARY target gmock_main
+
+
+#############################################
+# Order-only phony target for gmock_main
+
+build cmake_object_order_depends_target_gmock_main: phony || cmake_object_order_depends_target_gmock cmake_object_order_depends_target_gtest
+
+build test/googletest/googlemock/CMakeFiles/gmock_main.dir/src/gmock_main.cc.o: CXX_COMPILER__gmock_main_unscanned_Debug /Users/vittoria/CLionProjects/elenco_spesa/test/googletest/googlemock/src/gmock_main.cc || cmake_object_order_depends_target_gmock_main
+  DEP_FILE = test/googletest/googlemock/CMakeFiles/gmock_main.dir/src/gmock_main.cc.o.d
+  FLAGS = -g -std=c++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.5.sdk -fcolor-diagnostics  -DGTEST_HAS_PTHREAD=1
+  INCLUDES = -isystem /Users/vittoria/CLionProjects/elenco_spesa/test/googletest/googlemock/include -isystem /Users/vittoria/CLionProjects/elenco_spesa/test/googletest/googlemock -isystem /Users/vittoria/CLionProjects/elenco_spesa/test/googletest/googletest/include -isystem /Users/vittoria/CLionProjects/elenco_spesa/test/googletest/googletest
+  OBJECT_DIR = test/googletest/googlemock/CMakeFiles/gmock_main.dir
+  OBJECT_FILE_DIR = test/googletest/googlemock/CMakeFiles/gmock_main.dir/src
+
+
+# =============================================================================
+# Link build statements for STATIC_LIBRARY target gmock_main
+
+
+#############################################
+# Link the static library lib/libgmock_main.a
+
+build lib/libgmock_main.a: CXX_STATIC_LIBRARY_LINKER__gmock_main_Debug test/googletest/googlemock/CMakeFiles/gmock_main.dir/src/gmock_main.cc.o || lib/libgmock.a lib/libgtest.a
+  ARCH_FLAGS = -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.5.sdk
+  LANGUAGE_COMPILE_FLAGS = -g
+  OBJECT_DIR = test/googletest/googlemock/CMakeFiles/gmock_main.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = lib/libgmock_main.a
+  TARGET_PDB = gmock_main.a.dbg
+
+
+#############################################
+# Utility command for test
+
+build test/googletest/googlemock/CMakeFiles/test.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/vittoria/CLionProjects/elenco_spesa/cmake-build-debug/test/googletest/googlemock && /Users/vittoria/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/ctest --force-new-ctest-process
+  DESC = Running tests...
+  pool = console
+  restat = 1
+
+build test/googletest/googlemock/test: phony test/googletest/googlemock/CMakeFiles/test.util
+
+
+#############################################
+# Utility command for edit_cache
+
+build test/googletest/googlemock/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/vittoria/CLionProjects/elenco_spesa/cmake-build-debug/test/googletest/googlemock && /Users/vittoria/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+  DESC = No interactive CMake dialog available...
+  restat = 1
+
+build test/googletest/googlemock/edit_cache: phony test/googletest/googlemock/CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build test/googletest/googlemock/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/vittoria/CLionProjects/elenco_spesa/cmake-build-debug/test/googletest/googlemock && /Users/vittoria/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake --regenerate-during-build -S/Users/vittoria/CLionProjects/elenco_spesa -B/Users/vittoria/CLionProjects/elenco_spesa/cmake-build-debug
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build test/googletest/googlemock/rebuild_cache: phony test/googletest/googlemock/CMakeFiles/rebuild_cache.util
+
+
+#############################################
+# Utility command for list_install_components
+
+build test/googletest/googlemock/list_install_components: phony
+
+
+#############################################
+# Utility command for install
+
+build test/googletest/googlemock/CMakeFiles/install.util: CUSTOM_COMMAND test/googletest/googlemock/all
+  COMMAND = cd /Users/vittoria/CLionProjects/elenco_spesa/cmake-build-debug/test/googletest/googlemock && /Users/vittoria/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake -P cmake_install.cmake
+  DESC = Install the project...
+  pool = console
+  restat = 1
+
+build test/googletest/googlemock/install: phony test/googletest/googlemock/CMakeFiles/install.util
+
+
+#############################################
+# Utility command for install/local
+
+build test/googletest/googlemock/CMakeFiles/install/local.util: CUSTOM_COMMAND test/googletest/googlemock/all
+  COMMAND = cd /Users/vittoria/CLionProjects/elenco_spesa/cmake-build-debug/test/googletest/googlemock && /Users/vittoria/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+  DESC = Installing only the local directory...
+  pool = console
+  restat = 1
+
+build test/googletest/googlemock/install/local: phony test/googletest/googlemock/CMakeFiles/install/local.util
+
+
+#############################################
+# Utility command for install/strip
+
+build test/googletest/googlemock/CMakeFiles/install/strip.util: CUSTOM_COMMAND test/googletest/googlemock/all
+  COMMAND = cd /Users/vittoria/CLionProjects/elenco_spesa/cmake-build-debug/test/googletest/googlemock && /Users/vittoria/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+  DESC = Installing the project stripped...
+  pool = console
+  restat = 1
+
+build test/googletest/googlemock/install/strip: phony test/googletest/googlemock/CMakeFiles/install/strip.util
+
+# =============================================================================
+# Write statements declared in CMakeLists.txt:
+# /Users/vittoria/CLionProjects/elenco_spesa/test/googletest/googlemock/CMakeLists.txt
+# =============================================================================
+
+# =============================================================================
+# Object build statements for STATIC_LIBRARY target gtest
+
+
+#############################################
+# Order-only phony target for gtest
+
+build cmake_object_order_depends_target_gtest: phony || .
+
+build test/googletest/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.o: CXX_COMPILER__gtest_unscanned_Debug /Users/vittoria/CLionProjects/elenco_spesa/test/googletest/googletest/src/gtest-all.cc || cmake_object_order_depends_target_gtest
+  DEP_FILE = test/googletest/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.o.d
+  FLAGS = -g -std=c++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.5.sdk -fcolor-diagnostics  -DGTEST_HAS_PTHREAD=1
+  INCLUDES = -I/Users/vittoria/CLionProjects/elenco_spesa/test/googletest/googletest/include -I/Users/vittoria/CLionProjects/elenco_spesa/test/googletest/googletest
+  OBJECT_DIR = test/googletest/googletest/CMakeFiles/gtest.dir
+  OBJECT_FILE_DIR = test/googletest/googletest/CMakeFiles/gtest.dir/src
+
+
+# =============================================================================
+# Link build statements for STATIC_LIBRARY target gtest
+
+
+#############################################
+# Link the static library lib/libgtest.a
+
+build lib/libgtest.a: CXX_STATIC_LIBRARY_LINKER__gtest_Debug test/googletest/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.o
+  ARCH_FLAGS = -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.5.sdk
+  LANGUAGE_COMPILE_FLAGS = -g
+  OBJECT_DIR = test/googletest/googletest/CMakeFiles/gtest.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = lib/libgtest.a
+  TARGET_PDB = gtest.a.dbg
+
+# =============================================================================
+# Object build statements for STATIC_LIBRARY target gtest_main
+
+
+#############################################
+# Order-only phony target for gtest_main
+
+build cmake_object_order_depends_target_gtest_main: phony || cmake_object_order_depends_target_gtest
+
+build test/googletest/googletest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.o: CXX_COMPILER__gtest_main_unscanned_Debug /Users/vittoria/CLionProjects/elenco_spesa/test/googletest/googletest/src/gtest_main.cc || cmake_object_order_depends_target_gtest_main
+  DEP_FILE = test/googletest/googletest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.o.d
+  FLAGS = -g -std=c++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.5.sdk -fcolor-diagnostics  -DGTEST_HAS_PTHREAD=1
+  INCLUDES = -isystem /Users/vittoria/CLionProjects/elenco_spesa/test/googletest/googletest/include -isystem /Users/vittoria/CLionProjects/elenco_spesa/test/googletest/googletest
+  OBJECT_DIR = test/googletest/googletest/CMakeFiles/gtest_main.dir
+  OBJECT_FILE_DIR = test/googletest/googletest/CMakeFiles/gtest_main.dir/src
+
+
+# =============================================================================
+# Link build statements for STATIC_LIBRARY target gtest_main
+
+
+#############################################
+# Link the static library lib/libgtest_main.a
+
+build lib/libgtest_main.a: CXX_STATIC_LIBRARY_LINKER__gtest_main_Debug test/googletest/googletest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.o || lib/libgtest.a
+  ARCH_FLAGS = -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.5.sdk
+  LANGUAGE_COMPILE_FLAGS = -g
+  OBJECT_DIR = test/googletest/googletest/CMakeFiles/gtest_main.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = lib/libgtest_main.a
+  TARGET_PDB = gtest_main.a.dbg
+
+
+#############################################
+# Utility command for test
+
+build test/googletest/googletest/CMakeFiles/test.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/vittoria/CLionProjects/elenco_spesa/cmake-build-debug/test/googletest/googletest && /Users/vittoria/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/ctest --force-new-ctest-process
+  DESC = Running tests...
+  pool = console
+  restat = 1
+
+build test/googletest/googletest/test: phony test/googletest/googletest/CMakeFiles/test.util
+
+
+#############################################
+# Utility command for edit_cache
+
+build test/googletest/googletest/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/vittoria/CLionProjects/elenco_spesa/cmake-build-debug/test/googletest/googletest && /Users/vittoria/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+  DESC = No interactive CMake dialog available...
+  restat = 1
+
+build test/googletest/googletest/edit_cache: phony test/googletest/googletest/CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build test/googletest/googletest/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/vittoria/CLionProjects/elenco_spesa/cmake-build-debug/test/googletest/googletest && /Users/vittoria/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake --regenerate-during-build -S/Users/vittoria/CLionProjects/elenco_spesa -B/Users/vittoria/CLionProjects/elenco_spesa/cmake-build-debug
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build test/googletest/googletest/rebuild_cache: phony test/googletest/googletest/CMakeFiles/rebuild_cache.util
+
+
+#############################################
+# Utility command for list_install_components
+
+build test/googletest/googletest/list_install_components: phony
+
+
+#############################################
+# Utility command for install
+
+build test/googletest/googletest/CMakeFiles/install.util: CUSTOM_COMMAND test/googletest/googletest/all
+  COMMAND = cd /Users/vittoria/CLionProjects/elenco_spesa/cmake-build-debug/test/googletest/googletest && /Users/vittoria/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake -P cmake_install.cmake
+  DESC = Install the project...
+  pool = console
+  restat = 1
+
+build test/googletest/googletest/install: phony test/googletest/googletest/CMakeFiles/install.util
+
+
+#############################################
+# Utility command for install/local
+
+build test/googletest/googletest/CMakeFiles/install/local.util: CUSTOM_COMMAND test/googletest/googletest/all
+  COMMAND = cd /Users/vittoria/CLionProjects/elenco_spesa/cmake-build-debug/test/googletest/googletest && /Users/vittoria/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+  DESC = Installing only the local directory...
+  pool = console
+  restat = 1
+
+build test/googletest/googletest/install/local: phony test/googletest/googletest/CMakeFiles/install/local.util
+
+
+#############################################
+# Utility command for install/strip
+
+build test/googletest/googletest/CMakeFiles/install/strip.util: CUSTOM_COMMAND test/googletest/googletest/all
+  COMMAND = cd /Users/vittoria/CLionProjects/elenco_spesa/cmake-build-debug/test/googletest/googletest && /Users/vittoria/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+  DESC = Installing the project stripped...
+  pool = console
+  restat = 1
+
+build test/googletest/googletest/install/strip: phony test/googletest/googletest/CMakeFiles/install/strip.util
+
+# =============================================================================
+# Write statements declared in CMakeLists.txt:
+# /Users/vittoria/CLionProjects/elenco_spesa/CMakeLists.txt
+# =============================================================================
+
+# =============================================================================
+# Object build statements for EXECUTABLE target core_tests
+
+
+#############################################
+# Order-only phony target for core_tests
+
+build cmake_object_order_depends_target_core_tests: phony || cmake_object_order_depends_target_core cmake_object_order_depends_target_gtest cmake_object_order_depends_target_gtest_main
+
+build test/CMakeFiles/core_tests.dir/TestOggettoLista.cpp.o: CXX_COMPILER__core_tests_unscanned_Debug /Users/vittoria/CLionProjects/elenco_spesa/test/TestOggettoLista.cpp || cmake_object_order_depends_target_core_tests
+  DEP_FILE = test/CMakeFiles/core_tests.dir/TestOggettoLista.cpp.o.d
+  FLAGS = -g -std=gnu++20 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.5.sdk -fcolor-diagnostics
+  INCLUDES = -isystem /Users/vittoria/CLionProjects/elenco_spesa/test/googletest/googletest/include -isystem /Users/vittoria/CLionProjects/elenco_spesa/test/googletest/googletest
+  OBJECT_DIR = test/CMakeFiles/core_tests.dir
+  OBJECT_FILE_DIR = test/CMakeFiles/core_tests.dir
+
+build test/CMakeFiles/core_tests.dir/TestListaSpesa.cpp.o: CXX_COMPILER__core_tests_unscanned_Debug /Users/vittoria/CLionProjects/elenco_spesa/test/TestListaSpesa.cpp || cmake_object_order_depends_target_core_tests
+  DEP_FILE = test/CMakeFiles/core_tests.dir/TestListaSpesa.cpp.o.d
+  FLAGS = -g -std=gnu++20 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.5.sdk -fcolor-diagnostics
+  INCLUDES = -isystem /Users/vittoria/CLionProjects/elenco_spesa/test/googletest/googletest/include -isystem /Users/vittoria/CLionProjects/elenco_spesa/test/googletest/googletest
+  OBJECT_DIR = test/CMakeFiles/core_tests.dir
+  OBJECT_FILE_DIR = test/CMakeFiles/core_tests.dir
+
+build test/CMakeFiles/core_tests.dir/TestObserver.cpp.o: CXX_COMPILER__core_tests_unscanned_Debug /Users/vittoria/CLionProjects/elenco_spesa/test/TestObserver.cpp || cmake_object_order_depends_target_core_tests
+  DEP_FILE = test/CMakeFiles/core_tests.dir/TestObserver.cpp.o.d
+  FLAGS = -g -std=gnu++20 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.5.sdk -fcolor-diagnostics
+  INCLUDES = -isystem /Users/vittoria/CLionProjects/elenco_spesa/test/googletest/googletest/include -isystem /Users/vittoria/CLionProjects/elenco_spesa/test/googletest/googletest
+  OBJECT_DIR = test/CMakeFiles/core_tests.dir
+  OBJECT_FILE_DIR = test/CMakeFiles/core_tests.dir
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target core_tests
+
+
+#############################################
+# Link the executable test/core_tests
+
+build test/core_tests test/core_tests[1]_tests.cmake | ${cmake_ninja_workdir}test/core_tests[1]_tests.cmake: CXX_EXECUTABLE_LINKER__core_tests_Debug test/CMakeFiles/core_tests.dir/TestOggettoLista.cpp.o test/CMakeFiles/core_tests.dir/TestListaSpesa.cpp.o test/CMakeFiles/core_tests.dir/TestObserver.cpp.o | lib/libgtest_main.a libcore.a lib/libgtest.a || lib/libgtest.a lib/libgtest_main.a libcore.a
+  FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.5.sdk
+  LINK_LIBRARIES = lib/libgtest_main.a  libcore.a  -lpthread  lib/libgtest.a
+  OBJECT_DIR = test/CMakeFiles/core_tests.dir
+  POST_BUILD = cd /Users/vittoria/CLionProjects/elenco_spesa/cmake-build-debug/test && /Users/vittoria/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake -D TEST_TARGET=core_tests -D TEST_EXECUTABLE=/Users/vittoria/CLionProjects/elenco_spesa/cmake-build-debug/test/core_tests -D TEST_EXECUTOR= -D TEST_WORKING_DIR=/Users/vittoria/CLionProjects/elenco_spesa/cmake-build-debug/test -D TEST_EXTRA_ARGS= -D TEST_PROPERTIES= -D TEST_PREFIX= -D TEST_SUFFIX= -D TEST_FILTER= -D NO_PRETTY_TYPES=FALSE -D NO_PRETTY_VALUES=FALSE -D TEST_LIST=core_tests_TESTS -D CTEST_FILE=/Users/vittoria/CLionProjects/elenco_spesa/cmake-build-debug/test/core_tests[1]_tests.cmake -D TEST_DISCOVERY_TIMEOUT=5 -D TEST_XML_OUTPUT_DIR= -P /Users/vittoria/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Modules/GoogleTestAddTests.cmake
+  PRE_LINK = :
+  RESTAT = 1
+  TARGET_FILE = test/core_tests
+  TARGET_PDB = core_tests.dbg
+
+
+#############################################
+# Utility command for test
+
+build test/CMakeFiles/test.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/vittoria/CLionProjects/elenco_spesa/cmake-build-debug/test && /Users/vittoria/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/ctest --force-new-ctest-process
+  DESC = Running tests...
+  pool = console
+  restat = 1
+
+build test/test: phony test/CMakeFiles/test.util
+
+
+#############################################
+# Utility command for edit_cache
+
+build test/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/vittoria/CLionProjects/elenco_spesa/cmake-build-debug/test && /Users/vittoria/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+  DESC = No interactive CMake dialog available...
+  restat = 1
+
+build test/edit_cache: phony test/CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build test/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/vittoria/CLionProjects/elenco_spesa/cmake-build-debug/test && /Users/vittoria/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake --regenerate-during-build -S/Users/vittoria/CLionProjects/elenco_spesa -B/Users/vittoria/CLionProjects/elenco_spesa/cmake-build-debug
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build test/rebuild_cache: phony test/CMakeFiles/rebuild_cache.util
+
+
+#############################################
+# Utility command for list_install_components
+
+build test/list_install_components: phony
+
+
+#############################################
+# Utility command for install
+
+build test/CMakeFiles/install.util: CUSTOM_COMMAND test/all
+  COMMAND = cd /Users/vittoria/CLionProjects/elenco_spesa/cmake-build-debug/test && /Users/vittoria/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake -P cmake_install.cmake
+  DESC = Install the project...
+  pool = console
+  restat = 1
+
+build test/install: phony test/CMakeFiles/install.util
+
+
+#############################################
+# Utility command for install/local
+
+build test/CMakeFiles/install/local.util: CUSTOM_COMMAND test/all
+  COMMAND = cd /Users/vittoria/CLionProjects/elenco_spesa/cmake-build-debug/test && /Users/vittoria/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+  DESC = Installing only the local directory...
+  pool = console
+  restat = 1
+
+build test/install/local: phony test/CMakeFiles/install/local.util
+
+
+#############################################
+# Utility command for install/strip
+
+build test/CMakeFiles/install/strip.util: CUSTOM_COMMAND test/all
+  COMMAND = cd /Users/vittoria/CLionProjects/elenco_spesa/cmake-build-debug/test && /Users/vittoria/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+  DESC = Installing the project stripped...
+  pool = console
+  restat = 1
+
+build test/install/strip: phony test/CMakeFiles/install/strip.util
+
 # =============================================================================
 # Target aliases.
+
+build core: phony libcore.a
+
+build core_tests: phony test/core_tests
+
+build gmock: phony lib/libgmock.a
+
+build gmock_main: phony lib/libgmock_main.a
+
+build gtest: phony lib/libgtest.a
+
+build gtest_main: phony lib/libgtest_main.a
+
+build libgmock.a: phony lib/libgmock.a
+
+build libgmock_main.a: phony lib/libgmock_main.a
+
+build libgtest.a: phony lib/libgtest.a
+
+build libgtest_main.a: phony lib/libgtest_main.a
 
 # =============================================================================
 # Folder targets.
@@ -105,7 +720,35 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 #############################################
 # Folder: /Users/vittoria/CLionProjects/elenco_spesa/cmake-build-debug
 
-build all: phony elenco_spesa
+build all: phony libcore.a elenco_spesa test/googletest/all test/all
+
+# =============================================================================
+
+#############################################
+# Folder: /Users/vittoria/CLionProjects/elenco_spesa/cmake-build-debug/test
+
+build test/all: phony test/core_tests
+
+# =============================================================================
+
+#############################################
+# Folder: /Users/vittoria/CLionProjects/elenco_spesa/cmake-build-debug/test/googletest
+
+build test/googletest/all: phony test/googletest/googlemock/all
+
+# =============================================================================
+
+#############################################
+# Folder: /Users/vittoria/CLionProjects/elenco_spesa/cmake-build-debug/test/googletest/googlemock
+
+build test/googletest/googlemock/all: phony lib/libgmock.a lib/libgmock_main.a test/googletest/googletest/all
+
+# =============================================================================
+
+#############################################
+# Folder: /Users/vittoria/CLionProjects/elenco_spesa/cmake-build-debug/test/googletest/googletest
+
+build test/googletest/googletest/all: phony lib/libgtest.a lib/libgtest_main.a
 
 # =============================================================================
 # Built-in targets
@@ -114,14 +757,14 @@ build all: phony elenco_spesa
 #############################################
 # Re-run CMake if any of its inputs changed.
 
-build build.ninja: RERUN_CMAKE | /Users/vittoria/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Modules/CMakeCInformation.cmake /Users/vittoria/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Modules/CMakeCXXInformation.cmake /Users/vittoria/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Modules/CMakeCommonLanguageInclude.cmake /Users/vittoria/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Modules/CMakeGenericSystem.cmake /Users/vittoria/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Modules/CMakeInitializeConfigs.cmake /Users/vittoria/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Modules/CMakeLanguageInformation.cmake /Users/vittoria/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Modules/CMakeSystemSpecificInformation.cmake /Users/vittoria/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Modules/CMakeSystemSpecificInitialize.cmake /Users/vittoria/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Modules/Compiler/AppleClang-C.cmake /Users/vittoria/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Modules/Compiler/AppleClang-CXX.cmake /Users/vittoria/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Modules/Compiler/CMakeCommonCompilerMacros.cmake /Users/vittoria/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Modules/Compiler/Clang.cmake /Users/vittoria/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Modules/Compiler/GNU.cmake /Users/vittoria/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Modules/Platform/Apple-AppleClang-C.cmake /Users/vittoria/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Modules/Platform/Apple-AppleClang-CXX.cmake /Users/vittoria/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Modules/Platform/Apple-Clang-C.cmake /Users/vittoria/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Modules/Platform/Apple-Clang-CXX.cmake /Users/vittoria/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Modules/Platform/Apple-Clang.cmake /Users/vittoria/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Modules/Platform/Darwin-Initialize.cmake /Users/vittoria/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Modules/Platform/Darwin.cmake /Users/vittoria/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Modules/Platform/UnixPaths.cmake /Users/vittoria/CLionProjects/elenco_spesa/CMakeLists.txt CMakeCache.txt CMakeFiles/3.29.6/CMakeCCompiler.cmake CMakeFiles/3.29.6/CMakeCXXCompiler.cmake CMakeFiles/3.29.6/CMakeSystem.cmake
+build build.ninja: RERUN_CMAKE | /Users/vittoria/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Modules/BasicConfigVersion-AnyNewerVersion.cmake.in /Users/vittoria/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Modules/CMakeCInformation.cmake /Users/vittoria/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Modules/CMakeCXXInformation.cmake /Users/vittoria/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Modules/CMakeCommonLanguageInclude.cmake /Users/vittoria/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Modules/CMakeDependentOption.cmake /Users/vittoria/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Modules/CMakeGenericSystem.cmake /Users/vittoria/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Modules/CMakeInitializeConfigs.cmake /Users/vittoria/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Modules/CMakeLanguageInformation.cmake /Users/vittoria/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Modules/CMakePackageConfigHelpers.cmake /Users/vittoria/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Modules/CMakeSystemSpecificInformation.cmake /Users/vittoria/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Modules/CMakeSystemSpecificInitialize.cmake /Users/vittoria/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Modules/CheckCSourceCompiles.cmake /Users/vittoria/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Modules/CheckIncludeFile.cmake /Users/vittoria/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Modules/CheckLibraryExists.cmake /Users/vittoria/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Modules/Compiler/AppleClang-C.cmake /Users/vittoria/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Modules/Compiler/AppleClang-CXX.cmake /Users/vittoria/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Modules/Compiler/CMakeCommonCompilerMacros.cmake /Users/vittoria/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Modules/Compiler/Clang.cmake /Users/vittoria/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Modules/Compiler/GNU.cmake /Users/vittoria/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Modules/FindPackageHandleStandardArgs.cmake /Users/vittoria/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Modules/FindPackageMessage.cmake /Users/vittoria/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Modules/FindThreads.cmake /Users/vittoria/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Modules/GNUInstallDirs.cmake /Users/vittoria/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Modules/GoogleTest.cmake /Users/vittoria/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Modules/Internal/CheckSourceCompiles.cmake /Users/vittoria/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Modules/Platform/Apple-AppleClang-C.cmake /Users/vittoria/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Modules/Platform/Apple-AppleClang-CXX.cmake /Users/vittoria/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Modules/Platform/Apple-Clang-C.cmake /Users/vittoria/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Modules/Platform/Apple-Clang-CXX.cmake /Users/vittoria/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Modules/Platform/Apple-Clang.cmake /Users/vittoria/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Modules/Platform/Darwin-Initialize.cmake /Users/vittoria/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Modules/Platform/Darwin.cmake /Users/vittoria/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Modules/Platform/UnixPaths.cmake /Users/vittoria/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Modules/WriteBasicConfigVersionFile.cmake /Users/vittoria/CLionProjects/elenco_spesa/CMakeLists.txt /Users/vittoria/CLionProjects/elenco_spesa/test/CMakeLists.txt /Users/vittoria/CLionProjects/elenco_spesa/test/googletest/CMakeLists.txt /Users/vittoria/CLionProjects/elenco_spesa/test/googletest/googlemock/CMakeLists.txt /Users/vittoria/CLionProjects/elenco_spesa/test/googletest/googlemock/cmake/gmock.pc.in /Users/vittoria/CLionProjects/elenco_spesa/test/googletest/googlemock/cmake/gmock_main.pc.in /Users/vittoria/CLionProjects/elenco_spesa/test/googletest/googletest/CMakeLists.txt /Users/vittoria/CLionProjects/elenco_spesa/test/googletest/googletest/cmake/Config.cmake.in /Users/vittoria/CLionProjects/elenco_spesa/test/googletest/googletest/cmake/gtest.pc.in /Users/vittoria/CLionProjects/elenco_spesa/test/googletest/googletest/cmake/gtest_main.pc.in /Users/vittoria/CLionProjects/elenco_spesa/test/googletest/googletest/cmake/internal_utils.cmake CMakeCache.txt CMakeFiles/3.29.6/CMakeCCompiler.cmake CMakeFiles/3.29.6/CMakeCXXCompiler.cmake CMakeFiles/3.29.6/CMakeSystem.cmake
   pool = console
 
 
 #############################################
 # A missing CMake input file is not an error.
 
-build /Users/vittoria/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Modules/CMakeCInformation.cmake /Users/vittoria/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Modules/CMakeCXXInformation.cmake /Users/vittoria/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Modules/CMakeCommonLanguageInclude.cmake /Users/vittoria/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Modules/CMakeGenericSystem.cmake /Users/vittoria/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Modules/CMakeInitializeConfigs.cmake /Users/vittoria/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Modules/CMakeLanguageInformation.cmake /Users/vittoria/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Modules/CMakeSystemSpecificInformation.cmake /Users/vittoria/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Modules/CMakeSystemSpecificInitialize.cmake /Users/vittoria/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Modules/Compiler/AppleClang-C.cmake /Users/vittoria/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Modules/Compiler/AppleClang-CXX.cmake /Users/vittoria/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Modules/Compiler/CMakeCommonCompilerMacros.cmake /Users/vittoria/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Modules/Compiler/Clang.cmake /Users/vittoria/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Modules/Compiler/GNU.cmake /Users/vittoria/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Modules/Platform/Apple-AppleClang-C.cmake /Users/vittoria/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Modules/Platform/Apple-AppleClang-CXX.cmake /Users/vittoria/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Modules/Platform/Apple-Clang-C.cmake /Users/vittoria/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Modules/Platform/Apple-Clang-CXX.cmake /Users/vittoria/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Modules/Platform/Apple-Clang.cmake /Users/vittoria/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Modules/Platform/Darwin-Initialize.cmake /Users/vittoria/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Modules/Platform/Darwin.cmake /Users/vittoria/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Modules/Platform/UnixPaths.cmake /Users/vittoria/CLionProjects/elenco_spesa/CMakeLists.txt CMakeCache.txt CMakeFiles/3.29.6/CMakeCCompiler.cmake CMakeFiles/3.29.6/CMakeCXXCompiler.cmake CMakeFiles/3.29.6/CMakeSystem.cmake: phony
+build /Users/vittoria/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Modules/BasicConfigVersion-AnyNewerVersion.cmake.in /Users/vittoria/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Modules/CMakeCInformation.cmake /Users/vittoria/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Modules/CMakeCXXInformation.cmake /Users/vittoria/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Modules/CMakeCommonLanguageInclude.cmake /Users/vittoria/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Modules/CMakeDependentOption.cmake /Users/vittoria/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Modules/CMakeGenericSystem.cmake /Users/vittoria/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Modules/CMakeInitializeConfigs.cmake /Users/vittoria/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Modules/CMakeLanguageInformation.cmake /Users/vittoria/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Modules/CMakePackageConfigHelpers.cmake /Users/vittoria/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Modules/CMakeSystemSpecificInformation.cmake /Users/vittoria/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Modules/CMakeSystemSpecificInitialize.cmake /Users/vittoria/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Modules/CheckCSourceCompiles.cmake /Users/vittoria/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Modules/CheckIncludeFile.cmake /Users/vittoria/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Modules/CheckLibraryExists.cmake /Users/vittoria/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Modules/Compiler/AppleClang-C.cmake /Users/vittoria/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Modules/Compiler/AppleClang-CXX.cmake /Users/vittoria/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Modules/Compiler/CMakeCommonCompilerMacros.cmake /Users/vittoria/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Modules/Compiler/Clang.cmake /Users/vittoria/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Modules/Compiler/GNU.cmake /Users/vittoria/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Modules/FindPackageHandleStandardArgs.cmake /Users/vittoria/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Modules/FindPackageMessage.cmake /Users/vittoria/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Modules/FindThreads.cmake /Users/vittoria/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Modules/GNUInstallDirs.cmake /Users/vittoria/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Modules/GoogleTest.cmake /Users/vittoria/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Modules/Internal/CheckSourceCompiles.cmake /Users/vittoria/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Modules/Platform/Apple-AppleClang-C.cmake /Users/vittoria/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Modules/Platform/Apple-AppleClang-CXX.cmake /Users/vittoria/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Modules/Platform/Apple-Clang-C.cmake /Users/vittoria/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Modules/Platform/Apple-Clang-CXX.cmake /Users/vittoria/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Modules/Platform/Apple-Clang.cmake /Users/vittoria/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Modules/Platform/Darwin-Initialize.cmake /Users/vittoria/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Modules/Platform/Darwin.cmake /Users/vittoria/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Modules/Platform/UnixPaths.cmake /Users/vittoria/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Modules/WriteBasicConfigVersionFile.cmake /Users/vittoria/CLionProjects/elenco_spesa/CMakeLists.txt /Users/vittoria/CLionProjects/elenco_spesa/test/CMakeLists.txt /Users/vittoria/CLionProjects/elenco_spesa/test/googletest/CMakeLists.txt /Users/vittoria/CLionProjects/elenco_spesa/test/googletest/googlemock/CMakeLists.txt /Users/vittoria/CLionProjects/elenco_spesa/test/googletest/googlemock/cmake/gmock.pc.in /Users/vittoria/CLionProjects/elenco_spesa/test/googletest/googlemock/cmake/gmock_main.pc.in /Users/vittoria/CLionProjects/elenco_spesa/test/googletest/googletest/CMakeLists.txt /Users/vittoria/CLionProjects/elenco_spesa/test/googletest/googletest/cmake/Config.cmake.in /Users/vittoria/CLionProjects/elenco_spesa/test/googletest/googletest/cmake/gtest.pc.in /Users/vittoria/CLionProjects/elenco_spesa/test/googletest/googletest/cmake/gtest_main.pc.in /Users/vittoria/CLionProjects/elenco_spesa/test/googletest/googletest/cmake/internal_utils.cmake CMakeCache.txt CMakeFiles/3.29.6/CMakeCCompiler.cmake CMakeFiles/3.29.6/CMakeCXXCompiler.cmake CMakeFiles/3.29.6/CMakeSystem.cmake: phony
 
 
 #############################################

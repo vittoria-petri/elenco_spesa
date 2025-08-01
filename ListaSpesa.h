@@ -52,6 +52,10 @@ public:
   	}
   }
 
+  const std::list<OggettoLista>& getLista() const {
+    return listaSpesa;
+  }
+
   void subscribe(Observer* o) override {
     observers.push_back(o);
   }
