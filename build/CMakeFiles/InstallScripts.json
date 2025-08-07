@@ -1,0 +1,11 @@
+{
+	"InstallScripts" : 
+	[
+		"/Users/vittoria/CLionProjects/elenco_spesa/build/cmake_install.cmake",
+		"/Users/vittoria/CLionProjects/elenco_spesa/build/test/googletest/cmake_install.cmake",
+		"/Users/vittoria/CLionProjects/elenco_spesa/build/test/googletest/googlemock/cmake_install.cmake",
+		"/Users/vittoria/CLionProjects/elenco_spesa/build/test/googletest/googletest/cmake_install.cmake",
+		"/Users/vittoria/CLionProjects/elenco_spesa/build/test/cmake_install.cmake"
+	],
+	"Parallel" : false
+}
