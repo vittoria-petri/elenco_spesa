@@ -20,11 +20,14 @@ int main() {
 
     alice.aggiungiLista(listaCondivisa);
     bob.aggiungiLista(listaCondivisa);
-
+    Categoria alimentari("Alimentari");
+    Categoria igiene("Igiene");
+    Categoria frutta("Frutta");
     // Aggiungiamo oggetti alla lista
-    listaCondivisa->aggiungiOggetto(OggettoLista("Latte", 2, "Alimentari"));
-    listaCondivisa->aggiungiOggetto(OggettoLista("Sapone", 1, "Igiene"));
-    listaCondivisa->aggiungiOggetto(OggettoLista("Mele", 6, "Frutta"));
+    listaCondivisa->aggiungiOggetto(OggettoLista("Latte", 2, alimentari));
+    listaCondivisa->aggiungiOggetto(OggettoLista("Sapone", 1, igiene));
+    listaCondivisa->aggiungiOggetto(OggettoLista("Mele", 6, frutta));
+
 
     // Stampa dettagliata
     std::cout << "\nContenuto lista condivisa (visibile da Alice e Bob):\n";
@@ -49,6 +52,9 @@ int main() {
     // Stampa aggiornata
     std::cout << "\nLista aggiornata:\n";
     listaCondivisa->stampaOggettiDettagliati();
+
+
+
 
     // Mostra le liste di ciascun utente
     std::cout << "\nUtenti e le loro liste:\n";

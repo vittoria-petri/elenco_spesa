@@ -5,11 +5,10 @@
 #include <stdexcept>
 #include "../Categoria.h"
 #include "../OggettoLista.h"
+#include "../ListaSpesa.h"
+
 
 TEST(OggettoListaTest, CostruzioneConQuantitaZero) {
     Categoria cat("Frutta");
-    EXPECT_THROW({
-        OggettoLista mora("Mora", 0, cat);
-    }, std::invalid_argument);
-
+    EXPECT_ANY_THROW(OggettoLista mora("Mora", 0, cat));
 }

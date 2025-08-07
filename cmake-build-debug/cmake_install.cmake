@@ -39,11 +39,6 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/Users/vittoria/CLionProjects/elenco_spesa/cmake-build-debug/test/googletest/cmake_install.cmake")
-endif()
-
-if(NOT CMAKE_INSTALL_LOCAL_ONLY)
-  # Include the install script for the subdirectory.
   include("/Users/vittoria/CLionProjects/elenco_spesa/cmake-build-debug/test/cmake_install.cmake")
 endif()
 
