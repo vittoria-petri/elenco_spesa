@@ -1,4 +1,11 @@
 /Users/vittoria/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=/Users/vittoria/Applications/CLion.app/Contents/bin/ninja/mac/aarch64/ninja -G Ninja -S /Users/vittoria/CLionProjects/elenco_spesa -B /Users/vittoria/CLionProjects/elenco_spesa/cmake-build-debug
--- Configuring done (0.0s)
--- Generating done (0.0s)
--- Build files have been written to: /Users/vittoria/CLionProjects/elenco_spesa/cmake-build-debug
+CMake Error at /Users/vittoria/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Modules/FindPackageHandleStandardArgs.cmake:230 (message):
+  Could NOT find GTest (missing: GTEST_LIBRARY GTEST_INCLUDE_DIR
+  GTEST_MAIN_LIBRARY)
+Call Stack (most recent call first):
+  /Users/vittoria/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Modules/FindPackageHandleStandardArgs.cmake:600 (_FPHSA_FAILURE_MESSAGE)
+  /Users/vittoria/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Modules/FindGTest.cmake:270 (FIND_PACKAGE_HANDLE_STANDARD_ARGS)
+  test/CMakeLists.txt:1 (find_package)
+
+
+-- Configuring incomplete, errors occurred!

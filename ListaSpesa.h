@@ -26,7 +26,7 @@ public:
   void rimuoviOggetto(const std::string& nome) {
     bool trovato = false;
     for (auto it = listaSpesa.begin(); it != listaSpesa.end(); ) {
-      if (it->getNome() == nome) {
+      if ((*it).getNome() == nome) {
         it = listaSpesa.erase(it);
         trovato = true;
         notify();
