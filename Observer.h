@@ -6,12 +6,16 @@
 #define OBSERVER_H
 
 
-class Observer {  // Lista Observer
+class Observer {
+    // Lista Observer
 public:
-  virtual ~Observer() = default;
-  virtual void update() = 0;
-  virtual void attach() = 0;
-  virtual void detach() = 0;
+    virtual ~Observer() = default;
+
+    virtual void update() = 0;
+
+    virtual void attach() = 0;
+
+    virtual void detach() = 0;
 };
 
 #endif //OBSERVER_H

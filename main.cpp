@@ -37,7 +37,7 @@ int main() {
     std::cout << "\nBob rimuove 'Sapone' dalla lista...\n";
     try {
         listaCondivisa->rimuoviOggetto("Sapone");
-    } catch (const std::runtime_error& e) {
+    } catch (const std::runtime_error &e) {
         std::cerr << "Errore: " << e.what() << std::endl;
     }
 
@@ -45,7 +45,7 @@ int main() {
     std::cout << "\nBob prova a rimuovere 'Pane' (non presente)...\n";
     try {
         listaCondivisa->rimuoviOggetto("Pane");
-    } catch (const std::runtime_error& e) {
+    } catch (const std::runtime_error &e) {
         std::cerr << "Eccezione catturata: " << e.what() << std::endl;
     }
 
@@ -54,16 +54,14 @@ int main() {
     listaCondivisa->stampaOggettiDettagliati();
 
 
-
-
     // Mostra le liste di ciascun utente
     std::cout << "\nUtenti e le loro liste:\n";
-    for (const auto& lista : alice.getListe()) {
+    for (const auto &lista: alice.getListe()) {
         std::cout << "- Alice ha una lista con i seguenti oggetti:\n";
         lista->stampaOggettiDettagliati();
     }
 
-    for (const auto& lista : bob.getListe()) {
+    for (const auto &lista: bob.getListe()) {
         std::cout << "- Bob ha una lista con i seguenti oggetti:\n";
         lista->stampaOggettiDettagliati();
     }

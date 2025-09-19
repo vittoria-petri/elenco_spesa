@@ -11,23 +11,24 @@
 
 class Utente {
 public:
-  explicit Utente(const std::string &nome) : nome(nome) {}
+    explicit Utente(const std::string &nome) : nome(nome) {
+    }
 
-  void aggiungiLista(const std::shared_ptr<ListaSpesa>& lista) {
-    liste.push_back(lista);
-  }
+    void aggiungiLista(const std::shared_ptr<ListaSpesa> &lista) {
+        liste.push_back(lista);
+    }
 
-  const std::list<std::shared_ptr<ListaSpesa>>& getListe() const {
-    return liste;
-  }
+    const std::list<std::shared_ptr<ListaSpesa>>& getListe() const {
+        return liste;
+    }
 
-  std::string getNomeUtente() const {
-    return nome;
-  }
+    std::string getNomeUtente() const {
+        return nome;
+    }
 
 private:
-  std::string nome;
-  std::list<std::shared_ptr<ListaSpesa>> liste;
+    std::string nome;
+    std::list<std::shared_ptr<ListaSpesa> > liste;
 };
 
 

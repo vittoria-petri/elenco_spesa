@@ -8,35 +8,33 @@
 
 class ObserverConcrete : public Observer {
 public:
-  // Passa il Subject da osservare e controllo che il puntatore non sia nullo
-  explicit ObserverConcrete(Subject* subject) : subject(subject) {
-    if (!subject) {
-      throw std::invalid_argument("Subject non può essere nullptr");
+    // Passa il Subject da osservare e controllo che il puntatore non sia nullo
+    explicit ObserverConcrete(Subject *subject) : subject(subject) {
+        if (!subject) {
+            throw std::invalid_argument("Subject non può essere nullptr");
+        }
+        ObserverConcrete::attach();
     }
-    ObserverConcrete::attach();
-  }
 
-  ~ObserverConcrete() override {
-    std::cout << "ObserverConcrete: distruttore chiamato\n";
-    ObserverConcrete::detach();
-  }
+    ~ObserverConcrete() override {
+        std::cout << "ObserverConcrete: distruttore chiamato\n";
+        ObserverConcrete::detach();
+    }
 
-  void attach() override {
-      subject -> subscribe(this);
-  }
+    void attach() override {
+        subject->registerObserver(this);
+    }
 
-  void detach() override {
-      subject -> unsubscribe(this);
-  }
+    void detach() override {
+        subject->removeObserver(this);
+    }
 
-  void update() override {
-    std::cout << "ObserverConcrete: sono stato aggiornato!" << std::endl;
-  }
-
-
+    void update() override {
+        std::cout << "ObserverConcrete: sono stato aggiornato!" << std::endl;
+    }
 
 private:
-  Subject* subject;
+    Subject *subject;
 };
 
 #endif // OBSERVERCONCRETE_H
