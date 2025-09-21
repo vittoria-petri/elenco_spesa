@@ -70,6 +70,15 @@ public:
         }
     }
 
+    bool hasObserver(const Observer* o) const {
+        for (auto it = obs.begin(); it != obs.end(); ++it) {
+            if (*it == o) {
+                return true;
+            }
+        }
+        return false;
+    }
+
 private:
     std::list<OggettoLista> listaSpesa;
     std::list<Observer *> obs;

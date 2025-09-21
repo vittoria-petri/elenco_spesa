@@ -12,6 +12,9 @@
 class Utente {
 public:
     explicit Utente(const std::string &nome) : nome(nome) {
+        if (nome.empty()) {
+            throw std::invalid_argument("Il nome non può essere vuoto");
+        }
     }
 
     void aggiungiLista(const std::shared_ptr<ListaSpesa> &lista) {

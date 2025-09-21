@@ -14,6 +14,9 @@ set(SOURCE_FILES
         ../OggettoLista.h
         ../Subject.h
         ../Utente.h
+        TestObserverConcrete.cpp
+        TestUtente.cpp
+        TestCategoria.cpp
 )
 
 add_executable(runAllTests ${SOURCE_FILES})
