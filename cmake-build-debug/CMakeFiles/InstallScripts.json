@@ -1,0 +1,11 @@
+{
+	"InstallScripts" : 
+	[
+		"/Users/vittoria/Desktop/elenco_spesa/cmake-build-debug/cmake_install.cmake",
+		"/Users/vittoria/Desktop/elenco_spesa/cmake-build-debug/test/cmake_install.cmake",
+		"/Users/vittoria/Desktop/elenco_spesa/cmake-build-debug/test/googletest/cmake_install.cmake",
+		"/Users/vittoria/Desktop/elenco_spesa/cmake-build-debug/test/googletest/googlemock/cmake_install.cmake",
+		"/Users/vittoria/Desktop/elenco_spesa/cmake-build-debug/test/googletest/googletest/cmake_install.cmake"
+	],
+	"Parallel" : false
+}
