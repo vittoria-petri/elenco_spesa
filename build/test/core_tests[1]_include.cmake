@@ -1,5 +1,0 @@
-if(EXISTS "/Users/vittoria/CLionProjects/elenco_spesa/build/test/core_tests[1]_tests.cmake")
-  include("/Users/vittoria/CLionProjects/elenco_spesa/build/test/core_tests[1]_tests.cmake")
-else()
-  add_test(core_tests_NOT_BUILT core_tests_NOT_BUILT)
-endif()

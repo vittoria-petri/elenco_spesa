@@ -1,1 +1,0 @@
-/usr/bin/c++  -arch arm64 -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/core_tests.dir/TestOggettoLista.cpp.o CMakeFiles/core_tests.dir/TestListaSpesa.cpp.o CMakeFiles/core_tests.dir/TestObserver.cpp.o -o core_tests  ../lib/libgtest_main.a ../libcore.a -lpthread ../lib/libgtest.a
