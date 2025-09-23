@@ -6,7 +6,6 @@
 
 class OggettoLista {
 public:
-    // Controllo che i dati inseriti siano validi
     OggettoLista(const std::string &nome, int quantita, const Categoria &categoria)
         : nome(nome), quantita(quantita), categoria(categoria) {
         if (nome.empty()) {

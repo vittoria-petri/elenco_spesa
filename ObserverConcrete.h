@@ -1,19 +1,31 @@
 #ifndef OBSERVERCONCRETE_H
 #define OBSERVERCONCRETE_H
-
 #include "Observer.h"
 #include "Subject.h"
 #include <iostream>
 #include <stdexcept>
 
-class ObserverConcrete : public Observer {
+class ObserverConcrete final : public Observer {
 public:
-    // Passa il Subject da osservare e controllo che il puntatore non sia nullo
     explicit ObserverConcrete(Subject *subject) : subject(subject) {
         if (!subject) {
             throw std::invalid_argument("Subject non può essere nullptr");
         }
         ObserverConcrete::attach();
+    }
+    // Costruttore di copia
+    ObserverConcrete(const ObserverConcrete& other) : subject(other.subject) {
+        attach();
+    }
+
+    // Operatore di assegnazione
+    ObserverConcrete& operator=(const ObserverConcrete& other) {
+        if (this != &other) {
+            detach();
+            subject = other.subject;
+            attach();
+        }
+        return *this;
     }
 
     ~ObserverConcrete() override {

@@ -41,7 +41,7 @@ int main() {
         std::cerr << "Errore: " << e.what() << std::endl;
     }
 
-    // Rimuoviamo un oggetto **NON esistente** per vedere l’eccezione
+    // Rimuoviamo un oggetto (NON esistente) per vedere l’eccezione
     std::cout << "\nBob prova a rimuovere 'Pane' (non presente)...\n";
     try {
         listaCondivisa->rimuoviOggetto("Pane");

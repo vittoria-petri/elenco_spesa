@@ -1,6 +1,3 @@
-//
-// Created by Vittoria Petri on 01/08/25.
-//
 #include "gtest/gtest.h"
 
 int main(int argc, char** argv) {

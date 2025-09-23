@@ -227,6 +227,14 @@ build test/CMakeFiles/runAllTests.dir/TestCategoria.cpp.o: CXX_COMPILER__runAllT
   OBJECT_DIR = test/CMakeFiles/runAllTests.dir
   OBJECT_FILE_DIR = test/CMakeFiles/runAllTests.dir
 
+build test/CMakeFiles/runAllTests.dir/TestListaSpesa.cpp.o: CXX_COMPILER__runAllTests_unscanned_Debug /Users/vittoria/Desktop/elenco_spesa/test/TestListaSpesa.cpp || cmake_object_order_depends_target_runAllTests
+  CONFIG = Debug
+  DEP_FILE = test/CMakeFiles/runAllTests.dir/TestListaSpesa.cpp.o.d
+  FLAGS = -g -std=gnu++20 -arch arm64 -fcolor-diagnostics
+  INCLUDES = -isystem /Users/vittoria/Desktop/elenco_spesa/test/googletest/googletest/include -isystem /Users/vittoria/Desktop/elenco_spesa/test/googletest/googletest -isystem /Users/vittoria/Desktop/elenco_spesa/test/googletest/googlemock/include -isystem /Users/vittoria/Desktop/elenco_spesa/test/googletest/googlemock
+  OBJECT_DIR = test/CMakeFiles/runAllTests.dir
+  OBJECT_FILE_DIR = test/CMakeFiles/runAllTests.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target runAllTests
@@ -235,7 +243,7 @@ build test/CMakeFiles/runAllTests.dir/TestCategoria.cpp.o: CXX_COMPILER__runAllT
 #############################################
 # Link the executable test/runAllTests
 
-build test/runAllTests: CXX_EXECUTABLE_LINKER__runAllTests_Debug test/CMakeFiles/runAllTests.dir/runAllTests.cpp.o test/CMakeFiles/runAllTests.dir/TestOggettoLista.cpp.o test/CMakeFiles/runAllTests.dir/TestObserverConcrete.cpp.o test/CMakeFiles/runAllTests.dir/TestUtente.cpp.o test/CMakeFiles/runAllTests.dir/TestCategoria.cpp.o | lib/libgtest_main.a lib/libgmock.a libcore.a lib/libgtest.a || lib/libgmock.a lib/libgtest.a lib/libgtest_main.a libcore.a
+build test/runAllTests: CXX_EXECUTABLE_LINKER__runAllTests_Debug test/CMakeFiles/runAllTests.dir/runAllTests.cpp.o test/CMakeFiles/runAllTests.dir/TestOggettoLista.cpp.o test/CMakeFiles/runAllTests.dir/TestObserverConcrete.cpp.o test/CMakeFiles/runAllTests.dir/TestUtente.cpp.o test/CMakeFiles/runAllTests.dir/TestCategoria.cpp.o test/CMakeFiles/runAllTests.dir/TestListaSpesa.cpp.o | lib/libgtest_main.a lib/libgmock.a libcore.a lib/libgtest.a || lib/libgmock.a lib/libgtest.a lib/libgtest_main.a libcore.a
   CONFIG = Debug
   FLAGS = -g -arch arm64
   LINK_LIBRARIES = lib/libgtest_main.a  lib/libgmock.a  libcore.a  lib/libgtest.a

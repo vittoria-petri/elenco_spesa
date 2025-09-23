@@ -18,8 +18,10 @@ TEST(ObserverConcreteTest, ConstruttoreCopia) {
     ListaSpesa lista;
     ObserverConcrete observer1(&lista);
 
-    EXPECT_NO_THROW({ObserverConcrete observer2(observer1);});
+    ObserverConcrete observer2(observer1);
+    EXPECT_TRUE(lista.hasObserver(&observer2));
 }
+
 
 TEST(ObserverConcreteTest, OperatoreAssegnazione) {
     ListaSpesa lista1;
@@ -30,16 +32,18 @@ TEST(ObserverConcreteTest, OperatoreAssegnazione) {
     EXPECT_NO_THROW({observer2 = observer1;});
 }
 
+
 TEST(ObserverConcreteTest, VerificaCorrettezzaAttach) {
     ListaSpesa lista;
-    ObserverConcrete observer(&lista);  // attach avviene nel costruttore
+    ObserverConcrete observer(&lista);   // Attach() nel costruttore
 
     EXPECT_TRUE(lista.hasObserver(&observer)) << "Observer non è stato correttamente registrato in attach()";
 }
 
+
 TEST(ObserverConcreteTest, VerificaCorrettezzaDettach) {
     ListaSpesa lista;
-    ObserverConcrete observer(&lista);  // attach automatico
+    ObserverConcrete observer(&lista);   // Attach automatico
 
     ASSERT_TRUE(lista.hasObserver(&observer)) << "Observer dovrebbe essere registrato dopo il costruttore";
 
@@ -47,6 +51,7 @@ TEST(ObserverConcreteTest, VerificaCorrettezzaDettach) {
 
     EXPECT_FALSE(lista.hasObserver(&observer)) << "Observer non è stato correttamente rimosso in detach()";
 }
+
 
 TEST(ObserverConcreteTest, UpdateStampato) {
     ListaSpesa lista;
@@ -56,4 +61,3 @@ TEST(ObserverConcreteTest, UpdateStampato) {
 
     SUCCEED() << "Se non ci sono crash o errori, update() è stato probabilmente chiamato.";
 }
-

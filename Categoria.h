@@ -4,18 +4,18 @@
 
 class Categoria {
 public:
-  explicit Categoria(const std::string& nome) : nome(nome) {
-    if (nome.empty()) {
-      throw std::invalid_argument("Il nome della categoria non può essere vuoto");
+    explicit Categoria(const std::string &nome) : nome(nome) {
+        if (nome.empty()) {
+            throw std::invalid_argument("Il nome della categoria non può essere vuoto");
+        }
     }
-  }
 
-  std::string getNome() const {
-    return nome;
-  }
+    std::string getNome() const {
+        return nome;
+    }
 
 private:
-  std::string nome;
+    std::string nome;
 };
 
 #endif //CATEGORIA_H

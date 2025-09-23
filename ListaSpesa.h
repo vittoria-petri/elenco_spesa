@@ -1,7 +1,3 @@
-//
-// Created by Vittoria Petri on 25/07/25.
-//
-
 #ifndef LISTASPESA_H
 #define LISTASPESA_H
 #include <list>
@@ -10,7 +6,7 @@
 #include "Subject.h"
 #include "OggettoLista.h"
 
-class ListaSpesa : public Subject {
+class ListaSpesa final : public Subject {
 public:
     ListaSpesa() = default;
 
@@ -70,7 +66,7 @@ public:
         }
     }
 
-    bool hasObserver(const Observer* o) const {
+    bool hasObserver(const Observer *o) const {
         for (auto it = obs.begin(); it != obs.end(); ++it) {
             if (*it == o) {
                 return true;

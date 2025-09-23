@@ -17,6 +17,7 @@ set(SOURCE_FILES
         TestObserverConcrete.cpp
         TestUtente.cpp
         TestCategoria.cpp
+        TestListaSpesa.cpp
 )
 
 add_executable(runAllTests ${SOURCE_FILES})

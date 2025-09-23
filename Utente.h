@@ -1,7 +1,3 @@
-//
-// Created by Vittoria Petri on 25/07/25.
-//
-
 #ifndef UTENTE_H
 #define UTENTE_H
 #include "ListaSpesa.h"
@@ -21,7 +17,7 @@ public:
         liste.push_back(lista);
     }
 
-    const std::list<std::shared_ptr<ListaSpesa>>& getListe() const {
+    const std::list<std::shared_ptr<ListaSpesa> > &getListe() const {
         return liste;
     }
 
@@ -33,6 +29,5 @@ private:
     std::string nome;
     std::list<std::shared_ptr<ListaSpesa> > liste;
 };
-
 
 #endif //UTENTE_H
