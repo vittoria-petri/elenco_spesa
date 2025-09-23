@@ -21,9 +21,11 @@ TEST(ListaSpesaTest, AggiungiOggettoValido) {
 TEST(ListaSpesaTest, AggiungiOggettoConQuantitaNonValida) {
     ListaSpesa lista;
     Categoria categoria("Verdura");
-    OggettoLista oggetto("Carota", 0, categoria);
 
-    EXPECT_THROW(lista.aggiungiOggetto(oggetto), std::invalid_argument);
+    EXPECT_THROW({
+        OggettoLista oggetto("Carota", 0, categoria);
+        lista.aggiungiOggetto(oggetto);
+    }, std::invalid_argument);
 }
 
 

@@ -28,3 +28,5 @@
 31	582	1758637017728464290	/Users/vittoria/Desktop/elenco_spesa/cmake-build-debug/test/googletest/CTestTestfile.cmake	a45d326ea3003022
 6	699	1758636845746967041	CMakeFiles/elenco_spesa.dir/main.cpp.o	c175b1b5ce439e84
 1267	2209	1758636834865232374	test/CMakeFiles/runAllTests.dir/TestListaSpesa.cpp.o	310884de92a1fd1d
+8	937	1758639055169785082	test/CMakeFiles/runAllTests.dir/TestListaSpesa.cpp.o	310884de92a1fd1d
+937	1101	1758639056099312916	test/runAllTests	a2a4f42288bbd087
