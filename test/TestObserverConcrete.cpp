@@ -59,5 +59,5 @@ TEST(ObserverConcreteTest, UpdateStampato) {
     OggettoLista ogg("pane", 2, Categoria("Alimentari"));
     lista.aggiungiOggetto(ogg);
 
-    SUCCEED() << "Se non ci sono crash o errori, update() è stato probabilmente chiamato.";
+    SUCCEED() << "Se non ci sono crash o errori, update() è statochiamato.";
 }
